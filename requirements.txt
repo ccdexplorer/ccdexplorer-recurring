@@ -1,0 +1,11 @@
+ccdefundamentals
+aiohttp
+asyncio
+requests
+aiohttp
+pandas
+grpcio
+grpcio-tools
+grpclib
+betterproto==2.0.0b5
+python-dotenv
