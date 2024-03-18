@@ -89,36 +89,43 @@ class ImpactedAddresses(Utils):
                     previous_accounts_dict = {
                         x["_id"]: x["count"] for x in previous_result
                     }
-
+                    new_results = {}
                     for r in result:
                         if previous_accounts_dict.get(r["_id"]):
-                            r["count"] += previous_accounts_dict.get(r["_id"])
-                        local_queue.append(
-                            ReplaceOne({"_id": r["_id"]}, r, upsert=True)
-                        )
+                            new_results[r["_id"]] = r[
+                                "count"
+                            ] + previous_accounts_dict.get(r["_id"])
+
+                        else:
+                            new_results[r["_id"]] = r["count"]
+
+                    # now the new counts are added, but we need to add back the previous counts
+                    # to come to a new top 100
+                    for p, value in previous_accounts_dict.items():
+                        # this account did not appear in the new list
+                        if p not in new_results:
+                            new_results[p] = value
+
+                    # now new_results possibly has more than 100 entries, so sort and cut.
+                    sorted_dict = sorted(
+                        new_results.items(), key=lambda x: x[1], reverse=True
+                    )
+
+                    for index, (k, v) in enumerate(sorted_dict):
+                        if index < 100:
+                            local_queue.append(
+                                ReplaceOne({"_id": k}, {"count": v}, upsert=True)
+                            )
 
                     # _ = self.db[Collections.impacted_addresses_all_top_list].delete_many({})
                     if len(local_queue) > 0:
+                        _ = db[Collections.impacted_addresses_all_top_list].delete_many(
+                            {}
+                        )
                         _ = db[Collections.impacted_addresses_all_top_list].bulk_write(
                             local_queue
                         )
 
-                        # # remove results from collection such that only top 100
-                        # previous_result = self.db[
-                        #     Collections.impacted_addresses_all_top_list
-                        # ].find({})
-                        # previous_accounts_dict = {
-                        #     x["_id"]: x["count"] for x in previous_result
-                        # }
-                        # sorted_dict = dict(
-                        #     sorted(
-                        #         previous_accounts_dict.items(),
-                        #         key=operator.itemgetter(1),
-                        #         reverse=True,
-                        #     )
-                        # )
-                        # top_100_keys =
-                        # update top_list status retrieval
                         query = {
                             "_id": "heartbeat_last_block_processed_impacted_addresses_all_top_list"
                         }
