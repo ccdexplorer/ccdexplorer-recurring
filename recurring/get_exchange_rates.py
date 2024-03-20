@@ -135,11 +135,12 @@ class ExchangeRates(Utils):
                 queue = []
 
                 for token in token_list:
-                    # print(f"{token} start...")
+                    console.log(f"{token} start...")
                     result = await self.coinapi(token, self.coin_api_session)
                     if not result:
                         result = await self.coingecko(token)
                     if result:
+                        console.log(f"{token} retrieved...")
                         # print(f"{token} save...")
                         queue.append(
                             ReplaceOne(
