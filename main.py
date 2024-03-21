@@ -3,10 +3,10 @@ from __future__ import annotations
 from recurring import Recurring
 import atexit
 
-from ccdefundamentals.GRPCClient import GRPCClient
+from ccdexplorer_fundamentals.GRPCClient import GRPCClient
 import asyncio
-from ccdefundamentals.tooter import Tooter
-from ccdefundamentals.mongodb import (
+from ccdexplorer_fundamentals.tooter import Tooter
+from ccdexplorer_fundamentals.mongodb import (
     MongoDB,
     MongoMotor,
 )

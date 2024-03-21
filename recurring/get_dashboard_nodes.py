@@ -1,14 +1,14 @@
 from rich.console import Console
 from .utils import Utils, RecurringType
 from pymongo import ReplaceOne
-from ccdefundamentals.mongodb import Collections
-from ccdefundamentals.node import ConcordiumNodeFromDashboard
+from ccdexplorer_fundamentals.mongodb import Collections
+from ccdexplorer_fundamentals.node import ConcordiumNodeFromDashboard
 from pymongo.collection import Collection
-from ccdefundamentals.tooter import Tooter, TooterChannel, TooterType
+from ccdexplorer_fundamentals.tooter import Tooter, TooterChannel, TooterType
 
 import datetime as dt
 import aiohttp
-from ccdefundamentals.enums import NET
+from ccdexplorer_fundamentals.enums import NET
 import asyncio
 
 console = Console()

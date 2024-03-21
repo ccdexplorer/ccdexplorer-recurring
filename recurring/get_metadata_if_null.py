@@ -1,10 +1,10 @@
 from rich.console import Console
 from .utils import Utils, RecurringType
-from ccdefundamentals.mongodb import Collections
+from ccdexplorer_fundamentals.mongodb import Collections
 from pymongo.collection import Collection
-from ccdefundamentals.tooter import Tooter, TooterChannel, TooterType
+from ccdexplorer_fundamentals.tooter import Tooter, TooterChannel, TooterType
 from itertools import chain
-from ccdefundamentals.cis import MongoTypeTokenAddress, MongoTypeTokensTag
+from ccdexplorer_fundamentals.cis import MongoTypeTokenAddress, MongoTypeTokensTag
 import asyncio
 
 console = Console()

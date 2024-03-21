@@ -1,11 +1,11 @@
 from rich.console import Console
 from .utils import Utils, RecurringType
 from pymongo import ReplaceOne, DESCENDING
-from ccdefundamentals.mongodb import Collections
+from ccdexplorer_fundamentals.mongodb import Collections
 from pymongo.collection import Collection
 import datetime as dt
 from datetime import timedelta
-from ccdefundamentals.GRPCClient.CCD_Types import CCD_BlockItemSummary
+from ccdexplorer_fundamentals.GRPCClient.CCD_Types import CCD_BlockItemSummary
 import asyncio
 
 console = Console()

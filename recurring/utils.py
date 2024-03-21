@@ -1,4 +1,4 @@
-from ccdefundamentals.mongodb import (
+from ccdexplorer_fundamentals.mongodb import (
     Collections,
     CollectionsUtilities,
 )
@@ -8,7 +8,7 @@ import dateutil.parser
 from pymongo import ReplaceOne
 from datetime import timedelta
 import datetime as dt
-from ccdefundamentals.cis import (
+from ccdexplorer_fundamentals.cis import (
     MongoTypeTokenAddress,
     TokenMetaData,
     FailedAttempt,
@@ -18,7 +18,7 @@ from datetime import timezone
 import io
 import chardet
 from rich.console import Console
-from ccdefundamentals.enums import NET
+from ccdexplorer_fundamentals.enums import NET
 
 console = Console()
 

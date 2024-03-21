@@ -1,7 +1,7 @@
 from rich.console import Console
 from .utils import Utils, RecurringType
 from pymongo import ReplaceOne
-from ccdefundamentals.mongodb import Collections
+from ccdexplorer_fundamentals.mongodb import Collections
 from pymongo.collection import Collection
 import datetime as dt
 import asyncio

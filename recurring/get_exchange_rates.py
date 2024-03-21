@@ -1,10 +1,10 @@
 from rich.console import Console
 from pymongo import ReplaceOne
 from .utils import Utils, RecurringType
-from ccdefundamentals.mongodb import Collections
-from ccdefundamentals.mongodb import MongoDB, CollectionsUtilities
+from ccdexplorer_fundamentals.mongodb import Collections
+from ccdexplorer_fundamentals.mongodb import MongoDB, CollectionsUtilities
 import dateutil
-from ccdefundamentals.tooter import Tooter, TooterChannel, TooterType
+from ccdexplorer_fundamentals.tooter import Tooter, TooterChannel, TooterType
 import datetime as dt
 import aiohttp
 import asyncio

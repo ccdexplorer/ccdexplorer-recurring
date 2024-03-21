@@ -1,12 +1,12 @@
 from rich.console import Console
 from .utils import Utils, RecurringType
-from ccdefundamentals.mongodb import Collections
-from ccdefundamentals.GRPCClient.CCD_Types import CCD_ContractAddress
+from ccdexplorer_fundamentals.mongodb import Collections
+from ccdexplorer_fundamentals.GRPCClient.CCD_Types import CCD_ContractAddress
 from pymongo.collection import Collection
-from ccdefundamentals.tooter import Tooter, TooterChannel, TooterType
-from ccdefundamentals.enums import NET
+from ccdexplorer_fundamentals.tooter import Tooter, TooterChannel, TooterType
+from ccdexplorer_fundamentals.enums import NET
 import aiohttp
-from ccdefundamentals.cis import (
+from ccdexplorer_fundamentals.cis import (
     MongoTypeTokenAddress,
     MongoTypeTokensTag,
 )
