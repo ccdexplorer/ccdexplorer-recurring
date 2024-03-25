@@ -149,7 +149,7 @@ class ExchangeRates(Utils):
                                 upsert=True,
                             )
                         )
-
+                    asyncio.sleep(20)
                 if len(queue) > 0:
                     _ = self.utilities[CollectionsUtilities.exchange_rates].bulk_write(
                         queue
@@ -172,7 +172,7 @@ class ExchangeRates(Utils):
                     message=f"Recurring: Failed to get exchange rates. Error: {e}",
                     notifier_type=TooterType.REQUESTS_ERROR,
                 )
-            await asyncio.sleep(60)
+            await asyncio.sleep(5 * 60)
 
     async def update_exchange_rates_historical_for_tokens(self):
         await self.get_token_translations_from_mongo()
@@ -187,7 +187,7 @@ class ExchangeRates(Utils):
             ]
 
             queue = []
-            for token in token_list:
+            for token in reversed(token_list):
 
                 queue = await self.coingecko_historical(token)
 
