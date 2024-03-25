@@ -149,7 +149,7 @@ class ExchangeRates(Utils):
                                 upsert=True,
                             )
                         )
-                    asyncio.sleep(20)
+                    await asyncio.sleep(20)
                 if len(queue) > 0:
                     _ = self.utilities[CollectionsUtilities.exchange_rates].bulk_write(
                         queue
