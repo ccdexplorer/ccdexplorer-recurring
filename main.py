@@ -26,7 +26,7 @@ def main():
     loop.create_task(recurring.perform_statistics_mongo_accounts_table())
     loop.create_task(recurring.update_nodes_from_dashboard())
     loop.create_task(recurring.update_exchange_rates_for_tokens())
-    loop.create_task(recurring.update_exchange_rates_historical_for_tokens())
+    # loop.create_task(recurring.update_exchange_rates_historical_for_tokens())
     loop.create_task(recurring.web23_domain_name_metadata())
     loop.create_task(recurring.read_token_metadata_if_not_present())
     loop.create_task(recurring.get_tokens_page())
